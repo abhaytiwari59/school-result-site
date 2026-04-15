@@ -111,13 +111,15 @@ body {
 
 .card {
   width: 100%;
-  max-width: 700px;
+  max-width: 820px;
+  aspect-ratio: 4 / 5;
   background: linear-gradient(160deg, #0d1a42 0%, #07133a 55%, #060e2b 100%);
   border: 1.5px solid #c9a227;
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 0 18px 50px rgba(0,0,0,0.28);
 }
+
 .gold-top {
   height: 5px;
   background: linear-gradient(90deg, #4a3200, #c9a227, #f5e070, #c9a227, #4a3200);
@@ -342,10 +344,14 @@ body {
   opacity: 0.95;
 }
 
-@media print {
-  body { background: #060e2b; padding: 0; }
-  .edit-panel { display: none !important; }
+@media (max-width: 600px) {
+  .card {
+    width: 94vw;
+    max-width: 94vw;
+    aspect-ratio: 9 / 16;
+  }
 }
+
 </style>
 </head>
 <body>
@@ -452,7 +458,7 @@ function setClass(cls) {
 function downloadImage() {
   const card = document.querySelector('.card');
   const editPanel = document.getElementById('editPanel');
-
+         window.scrollTo(0, 0);
   const oldDisplay = editPanel.style.display;
   editPanel.style.display = 'none';
 
